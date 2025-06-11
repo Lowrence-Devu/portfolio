@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Entrance page styles */
+        #entrance {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: black;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #entrance h1 {
+            font-size: 5rem;
+            color: #ffffff;
+            animation: fadeIn 2s ease-in-out;
+        }
+        #entrance h1 span {
+            color: #ce1212;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Second page styles */
+        #second {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: black;
+            color: rgb(255, 0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #second h1 {
+            font-size: 4rem;
+            color:white; /* Default color for the text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #second h1 span {
+            color: rgb(255, 0, 0); /* White color for the span */
+            display: inline-block;
+            animation: zoomOut 1s ease-in-out 2s forwards;
+        }
+
+
+        /* Main page styles */
+        #main {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        header {
+            margin-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 9%;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #b74b4b;
+            font-weight: 800;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 0rem;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8rem;
+        }
+
+        .home-content h1 {
+            font-size: 6rem;
+            font-weight: 700;
+        }
+
+        span {
+            color: #b74b4b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Entrance Page -->
+    <div id="entrance">
+        <h1>Welcome to My <span>Portfolio</span></h1>
+    </div>
+
+    <!-- Second Page -->
+    <div id="second">
+        <h1 >Explore <span>My Journey</span>   <h1 id="typing-h1"></h1>   </h1>
+    </div>
+
+    <!-- Main Page -->
+    <div id="main">
+        <header>
+            <a href="#" class="logo">Portfolio</a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a> <!-- Added Certifications link -->
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        <section class="home">
+            <div class="home-img">
+                <img src="main.jpeg" alt="Profile Picture">
+                <div class="particles">
+                    <!-- Particles will be dynamically added here -->
+                </div>
+            </div>
+            <div class="home-content">
+                <h1>Hi, It's <span>Lowrence</span></h1>
+                <h3 class="typing-text">I'm a <span id="typing"></span></h3>
+                <p>I'm a Frontend Developer passionate about creating responsive, user-friendly web interfaces using HTML, CSS, JavaScript, and React. I enjoy turning ideas into interactive digital experiences and strive to write clean, efficient code.
+
+                    In addition to frontend development, I have a strong interest in Python-based AI systems and have built intelligent tools using Python. I'm also enthusiastic about hardware technologies like IC design, Arduino, and IoT, where I explore the integration of software with real-world devices.
+                    
+                    I’m always eager to learn, experiment, and build solutions that bridge design, intelligence, and hardware.
+                    
+                    </p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/lowrence-devu-316392259/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Lowrence-Devu"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="mailto:lowrencedevu@gmail.com" class="btn">Hire me</a>
+            </div>
+        </section>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>React</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Git</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <!-- New Skills -->
+                <div class="skill">
+                    <h3>C++</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>UI/UX Design</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Bachelor of Engineering (ECE)</h3>
+                    <p>Final Year Student</p>
+                    <p>CGPA: 8.1 out of 10</p>
+                    <p>Pragati Engineering College</p>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-item">
+                    <h3>Lyra AI – Voice Commanded Personal Assistant</h3>
+                    <p>
+                        Developed a voice-controlled AI assistant using multiple APIs to perform tasks like reminders, weather updates, date/day info, location search, calculations, and app management (open/close apps).
+                    </p>
+                    <p>
+                        Integrated natural language processing to understand user commands and deliver accurate responses.
+                    </p>
+                    <p>
+                        Built using Python and speech recognition APIs.
+                    </p>
+                    <p>
+                        Enhanced skills in AI techniques, API integration, and user interaction design.
+                    </p>
+                </div>
+                <!-- New Project -->
+                <div class="project-item">
+                    <h3>Hands-on VLSI, FPGA Implementation, and IoT</h3>
+                    <p>
+                        Gained practical exposure to VLSI (Very-Large-Scale Integration) design, including logic gate design, circuit simulation, and layout implementation using industry-standard tools.
+                    </p>
+                    <p>
+                        Implemented real-time applications using FPGA (Field-Programmable Gate Array) platforms, covering Verilog/HDL coding, synthesis, simulation, and hardware deployment.
+                    </p>
+                    <p>
+                        Worked on IoT (Internet of Things) based prototypes integrating sensors, microcontrollers (like Arduino/ESP32), and cloud platforms for data monitoring and automation.
+                    </p>
+                </div>
+                <!-- New Project: E-commerce Website -->
+                <div class="project-item">
+                    <h3>E-commerce Website for a Clothing Store</h3>
+                    <p>
+                        Designed a fully functional e-commerce website for a clothing store with features like product browsing, filtering, and a shopping cart.
+                    </p>
+                    <p>
+                        Integrated a payment gateway for seamless checkout (frontend only, no backend implementation).
+                    </p>
+                    <p>
+                        Built using HTML, CSS, JavaScript, and Bootstrap for responsive design.
+                    </p>
+                    <p>
+                        Enhanced skills in frontend development, UI/UX design, and e-commerce workflows.
+                    </p>
+                </div>
+                <!-- New Project: Portfolio Website -->
+                <div class="project-item">
+                    <h3>Portfolio Website</h3>
+                    <p>
+                        Designed and developed a personal portfolio website to showcase skills, education, and projects in a professional format.
+                    </p>
+                    <p>
+                        Features include a responsive design, smooth animations, and interactive elements like a typing effect and glowing particles.
+                    </p>
+                    <p>
+                        Built using HTML, CSS, and JavaScript with a focus on modern UI/UX design principles.
+                    </p>
+                    <p>
+                        Enhanced skills in web development, responsive design, and user interaction design.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="certifications-container">
+                <!-- New Certifications -->
+                <div class="certification-item">
+                    <h3>Cisco Cybersecurity & Networking</h3>
+                    <p>Familiar with Cisco Cybersecurity concepts, including threat detection, network defense, and security operations.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Google For Developers</h3>
+                    <p>Internship at Google for Developers — Gained practical experience in Android Application Development and AI techniques, contributing to real-world projects and enhancing technical and problem-solving skills.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>AWS Academy</h3>
+                    <p>My AI/ML experience has been a journey of learning and facing challenges and rewards. The field of AI and Machine Learning has been evolving constantly, and I felt excited to be part of it.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Google Cloud Certified Associate</h3>
+                    <p>Recognized for foundational knowledge and skills in deploying and managing applications on Google Cloud.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Salesforce AI Associate</h3>
+                    <p>Certified in leveraging Salesforce AI tools to enhance customer relationship management and business processes.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>L4G Generative AI</h3>
+                    <p>Demonstrated expertise in generative AI concepts, tools, and applications for solving real-world problems.</p>
+                </div>
+                <div class="certification-item">
+                    <h3>GCCF Certificate</h3>
+                    <p>Global Certified Cloud Fundamentals — Demonstrated foundational knowledge of cloud computing concepts, services, and deployment models.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:lowrencedevu@gmail.com">lowrencedevu@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+91 8309509846">+91 8309509846</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Pragati Engineering College, Andhra Pradesh, India</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Social Media</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/lowrence-devu-316392259/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/Lowrence-Devu"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Typing effect for the second page
+            const typingH1 = document.getElementById('typing-h1');
+            const text = "in technology, innovation, and creativity.";
+            let index = 0;
+
+            function typeH1() {
+                if (index < text.length) {
+                    typingH1.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeH1, 75);
+                }
+            }
+
+            // Show the second page after the entrance page
+            setTimeout(() => {
+                const entrance = document.getElementById('entrance');
+                const second = document.getElementById('second');
+                entrance.style.opacity = '0';
+                setTimeout(() => {
+                    entrance.style.display = 'none';
+                    second.style.display = 'flex';
+                    typeH1();
+                    setTimeout(() => {
+                        second.style.opacity = '0';
+                        const main = document.getElementById('main');
+                        setTimeout(() => {
+                            second.style.display = 'none';
+                            main.style.display = 'block';
+                            setTimeout(() => {
+                                main.style.opacity = '1';
+                            }, 100);
+                        }, 1000);
+                    }, 5000); // Show second page for 5 seconds
+                }, 1000);
+            }, 3000); // Show entrance page for 3 seconds
+
+            // Typing effect for the main page
+            const typingElement = document.getElementById('typing');
+            const words = ["Frontend Developer", "Web Developer", "Web Designer"];
+            let wordIndex = 0;
+            let letterIndex = 0;
+            let currentWord = '';
+            let currentLetters = '';
+            let isDeleting = false;
+
+            function type() {
+                if (isDeleting) {
+                    currentLetters = currentWord.substring(0, letterIndex - 1);
+                    letterIndex--;
+                } else {
+                    currentLetters = currentWord.substring(0, letterIndex + 1);
+                    letterIndex++;
+                }
+
+                typingElement.innerHTML = currentLetters;
+
+                let typeSpeed = 200;
+                if (isDeleting) {
+                    typeSpeed /= 2;
+                }
+
+                if (!isDeleting && letterIndex === currentWord.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && letterIndex === 0) {
+                    isDeleting = false;
+                    wordIndex++;
+                    if (wordIndex === words.length) {
+                        wordIndex = 0;
+                    }
+                    currentWord = words[wordIndex];
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            currentWord = words[wordIndex];
+            type();
+
+            // Dynamically add particles around the picture
+            const particlesContainer = document.querySelector('.particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('span');
+                const size = Math.random() * 5 + 5; // Random size between 5px and 10px
+                const x = Math.random() * 100; // Random horizontal position
+                const y = Math.random() * 100; // Random vertical position
+                const duration = Math.random() * 5 + 3; // Random animation duration
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${x}%`;
+                particle.style.top = `${y}%`;
+                particle.style.animationDuration = `${duration}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+
+            // Handle active state for navigation links
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.forEach(nav => nav.classList.remove('active')); // Remove active class from all links
+                    link.classList.add('active'); // Add active class to the clicked link
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
