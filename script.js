@@ -6,31 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle('active');
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Enable normal page scrolling (remove overflow: hidden from body if present)
+    document.body.style.overflow = 'auto';
 
     const typingElement = document.getElementById('typing');
     const words = ["Frontend Developer","Web Developer", "Web Designer"];
@@ -50,6 +27,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         typingElement.innerHTML = currentLetters;
 
+        let typeSpeed = 200;
+        if (isDeleting) {
+            typeSpeed /= 2;
+        }
+
+        if (!isDeleting && letterIndex === currentWord.length) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && letterIndex === 0) {
+            isDeleting = false;
+            wordIndex++;
+            if (wordIndex === words.length) {
+                wordIndex = 0;
+            }
+            currentWord = words[wordIndex];
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+    currentWord = words[wordIndex];
+    type();
+});
         let typeSpeed = 200;
         if (isDeleting) {
             typeSpeed /= 2;

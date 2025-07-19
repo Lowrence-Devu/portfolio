@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
@@ -13,7 +14,8 @@
             font-family: 'Poppins', sans-serif;
             background-color: black;
             color: white;
-            overflow: hidden;
+            /* Remove overflow: hidden to allow scrolling */
+            /* overflow: hidden; */
         }
 
         /* Entrance page styles */
@@ -241,12 +243,66 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <!-- Real skill icons row with hover and more skills -->
+            <div class="skills-icons" style="display:flex;justify-content:center;align-items:center;gap:2.5rem;margin-top:2.5rem;flex-wrap:wrap;">
+                <style>
+                    .skills-icons img {
+                        width:100px;
+                        height:100px;
+                        transition: transform 0.2s, box-shadow 0.2s;
+                        border-radius: 12px;
+                        background:#18181800;
+                        padding: 12px;
+                        box-shadow: 0 2px 8px #00000033;
+                    }
+                    .skills-icons img:hover {
+                        transform: scale(1.18) rotate(-6deg);
+                        box-shadow: 0 4px 24px #b74b4b99, 0 0 0 2px #fff3;
+                        border-radius: 12px;
+                        z-index: 2;
+                    }
+                </style>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" title="HTML5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" title="CSS3">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" title="TypeScript">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" title="Bootstrap">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" title="GitHub" style="background:#fff;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" title="C++">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" title="Express.js" style="background:#fff;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" title="MongoDB">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma/UIUX" title="UI/UX Design">
+            </div>
+        </section>
+        <!-- Why Hire Me Section -->
+        <section id="why-hire-me" class="why-hire-me-section">
+          <div class="why-hire-me-accent-bar"></div>
+          <div class="why-hire-me-card">
+            <div class="why-hire-me-header">
+              <i class="bi bi-stars why-hire-me-icon"></i>
+              <h2>Why Hire Me?</h2>
+            </div>
+            <ul class="why-hire-me-list">
+              <li><i class="bi bi-lightning-charge"></i> <span class="why-highlight">Proven ability</span> to deliver modern, responsive web apps and AI solutions.</li>
+              <li><i class="bi bi-graph-up-arrow"></i> <span class="why-highlight">Strong foundation</span> in both frontend and backend technologies.</li>
+              <li><i class="bi bi-magic"></i> <span class="why-highlight">Passionate</span> about learning, adapting, and solving real-world problems.</li>
+              <li><i class="bi bi-people"></i> <span class="why-highlight">Excellent communicator</span> and team player.</li>
+              <li><i class="bi bi-award"></i> <span class="why-highlight">Recognized</span> with multiple certifications and real project experience.</li>
+            </ul>
+            <a href="#contact" class="why-hire-me-btn">Let's Connect</a>
+          </div>
         </section>
         <section id="education">
             <h2>Education</h2>
             <div class="education-container">
                 <div class="education-item">
-                    <h3>Bachelor of Engineering (ECE)</h3>
+                    <h3>Bachelor of Engineering (ECE) </h3>
                     <p>Final Year Student</p>
                     <p>CGPA: 8.1 out of 10</p>
                     <p>Pragati Engineering College</p>
@@ -256,65 +312,47 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-container">
-                <div class="project-item">
+                <div class="project-item" data-title="Lyra AI – Voice Commanded Personal Assistant" data-img="assets/lyraAI.png" data-desc="Developed a voice-controlled AI assistant using multiple APIs to perform tasks like reminders, weather updates, date/day info, location search, calculations, and app management (open/close apps). Integrated natural language processing to understand user commands and deliver accurate responses. Built using Python and speech recognition APIs." data-link="https://github.com/Lowrence-Devu/lyra">
+                    <img src="assets/lyraAI.png" alt="Lyra AI – Voice Commanded Personal Assistant">
                     <h3>Lyra AI – Voice Commanded Personal Assistant</h3>
-                    <p>
-                        Developed a voice-controlled AI assistant using multiple APIs to perform tasks like reminders, weather updates, date/day info, location search, calculations, and app management (open/close apps).
-                    </p>
-                    <p>
-                        Integrated natural language processing to understand user commands and deliver accurate responses.
-                    </p>
-                    <p>
-                        Built using Python and speech recognition APIs.
-                    </p>
-                    <p>
-                        Enhanced skills in AI techniques, API integration, and user interaction design.
-                    </p>
                 </div>
-                <!-- New Project -->
-                <div class="project-item">
-                    <h3>Hands-on VLSI, FPGA Implementation, and IoT</h3>
-                    <p>
-                        Gained practical exposure to VLSI (Very-Large-Scale Integration) design, including logic gate design, circuit simulation, and layout implementation using industry-standard tools.
-                    </p>
-                    <p>
-                        Implemented real-time applications using FPGA (Field-Programmable Gate Array) platforms, covering Verilog/HDL coding, synthesis, simulation, and hardware deployment.
-                    </p>
-                    <p>
-                        Worked on IoT (Internet of Things) based prototypes integrating sensors, microcontrollers (like Arduino/ESP32), and cloud platforms for data monitoring and automation.
-                    </p>
+                <div class="project-item" data-title="Connect Sphere" data-img="assets/connectsphere.png" data-desc="Connect Sphere is a social networking and collaboration platform designed for students and professionals. It enables users to create profiles, join groups, share updates, chat in real-time, and collaborate on projects or events. The platform emphasizes community building, knowledge sharing, and seamless communication in a secure environment." data-link="https://connectsphere-rho.vercel.app">
+                    <img src="assets/connectsphere.png" alt="Connect Sphere">
+                    <h3>Connect Sphere</h3>
                 </div>
-                <!-- New Project: E-commerce Website -->
-                <div class="project-item">
-                    <h3>E-commerce Website for a Clothing Store</h3>
-                    <p>
-                        Designed a fully functional e-commerce website for a clothing store with features like product browsing, filtering, and a shopping cart.
-                    </p>
-                    <p>
-                        Integrated a payment gateway for seamless checkout (frontend only, no backend implementation).
-                    </p>
-                    <p>
-                        Built using HTML, CSS, JavaScript, and Bootstrap for responsive design.
-                    </p>
-                    <p>
-                        Enhanced skills in frontend development, UI/UX design, and e-commerce workflows.
-                    </p>
+                <div class="project-item" data-title="Finance Management Dashboard" data-img="assets/finance-dashboard.png" data-desc="Dashboard for managing personal or business finances, visualizing income, expenses, and trends. Built with modern web technologies for interactive data visualization.">
+                    <img src="assets/finance-dashboard.png" alt="Finance Management Dashboard">
+                    <h3>Finance Management Dashboard</h3>
                 </div>
-                <!-- New Project: Portfolio Website -->
-                <div class="project-item">
-                    <h3>Portfolio Website</h3>
-                    <p>
-                        Designed and developed a personal portfolio website to showcase skills, education, and projects in a professional format.
-                    </p>
-                    <p>
-                        Features include a responsive design, smooth animations, and interactive elements like a typing effect and glowing particles.
-                    </p>
-                    <p>
-                        Built using HTML, CSS, and JavaScript with a focus on modern UI/UX design principles.
-                    </p>
-                    <p>
-                        Enhanced skills in web development, responsive design, and user interaction design.
-                    </p>
+                <div class="project-item" data-title="Weather App" data-img="assets/weather.png" data-desc="Weather forecasting app providing real-time weather data, forecasts, and location-based updates. Built with HTML, CSS, and JavaScript." data-link="https://lowrence-devu.github.io/weather/">
+                    <img src="assets/weather.png" alt="Weather App">
+                    <h3>Weather App</h3>
+                </div>
+                <div class="project-item" data-title="AI Chatbot" data-img="assets/chatbot.jpeg" data-desc="Conversational AI chatbot capable of answering questions, providing information, and assisting users. Built using Python and machine learning libraries.">
+                    <img src="assets/chatbot.jpeg" alt="AI Chatbot">
+                    <h3>AI Chatbot</h3>
+                </div>
+                <div class="project-item" data-title="Coding Platform Website" data-img="assets/code.png" data-desc="Online platform for coding practice, challenges, and collaboration. Features user authentication, code editor, and leaderboard.">
+                    <img src="assets/code.png" alt="Coding Platform Website">
+                    <h3>Coding Platform Website</h3>
+                </div>
+                <div class="project-item" data-title="Image Caption Generator" data-img="assets/ITCG.png" data-desc="Generates descriptive captions for images using deep learning models. Built with Python and computer vision libraries.">
+                    <img src="assets/ITCG.png" alt="Image Caption Generator">
+                    <h3>Image Caption Generator</h3>
+                </div>
+                <div class="project-item" data-title="Hand Gesture OS Control" data-img="assets/hand-gesture-os.png" data-desc="A computer control system that uses hand gestures detected via webcam to perform OS-level actions like mouse movement, clicks, and keyboard shortcuts. Built with computer vision and machine learning for intuitive, touchless interaction.">
+                    <img src="assets/handgesture.png" alt="Hand Gesture OS Control">
+                    <h3>Hand Gesture OS Control</h3>
+                </div>
+            </div>
+            <!-- Modal for enlarged project details -->
+            <div id="project-modal" class="project-modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img id="modal-img" src="" alt="Project Image">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-desc"></p>
+                    <a id="project-modal-link" href="#" target="_blank" rel="noopener noreferrer" class="project-modal-link" style="display:none;">View Project</a>
                 </div>
             </div>
         </section>
@@ -322,33 +360,50 @@
             <h2>Certifications</h2>
             <div class="certifications-container">
                 <!-- New Certifications -->
-                <div class="certification-item">
-                    <h3>Cisco Cybersecurity & Networking</h3>
-                    <p>Familiar with Cisco Cybersecurity concepts, including threat detection, network defense, and security operations.</p>
+                <div class="certification-item cert-modal-trigger" data-title="Cisco AICTE Virtual Internship Program 2024" data-img="assets/cisco.png" data-desc="Cisco Networking Academy recognition for completing the Virtual Internship Program in Networking, May - July 2024." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQHdBRzrYxQtcA/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1727347776868?e=1753920000&v=beta&t=06L0ATUwED3Op8-ipCHOyJcEZp7wiLoEi9F3LciPrI8">
+                    <img src="assets/cisco.png" alt="Cisco AICTE Virtual Internship Program 2024" class="cert-img cert-full">
+                    <h3>Cisco AICTE Virtual Internship Program 2024</h3>
+                </div>
+                <div class="certification-item cert-modal-trigger" data-title="Certified ServiceNow Administrator" data-img="assets/servicenow.png" data-desc="Credentialed in managing, configuring, and maintaining ServiceNow platforms for enterprise IT service management and automation." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQGg3KFP0fcNYQ/feedshare-document-pdf-analyzed/B56Zf1RyZsHQAk-/0/1752166773654?e=1753920000&v=beta&t=uq80D-9pyRByO6qc_APqBHjm2uOGV8l5Se1rHY3FyZw">
+                    <img src="assets/servicenow.png" alt="Certified ServiceNow Administrator" class="cert-img cert-full">
+                    <h3>Certified ServiceNow Administrator</h3>
+                </div>
+                <div class="certification-item cert-modal-trigger" data-title="Salesforce AI Associate" data-img="assets/salesforce.png" data-desc="Certified in leveraging Salesforce AI tools to enhance customer relationship management and business processes." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQHyAaGmgSPh5g/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1729618913929?e=1753920000&v=beta&t=NIrsy6ODuPe9HdsX5o02-Y2GH2hGx-88eGfsIapnKN0">
+                    <img src="assets/salesforce.png" alt="Salesforce AI Associate" class="cert-img cert-full">
+                    <h3>Salesforce AI Associate</h3>
+                </div>
+                <div class="certification-item cert-modal-trigger" data-title="GCCF Certificate" data-img="assets/gccf.png" data-desc="Global Certified Cloud Fundamentals — Demonstrated foundational knowledge of cloud computing concepts, services, and deployment models." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQEJxUXL1P9kXQ/feedshare-document-pdf-analyzed/B56ZXSR4JQHQAc-/0/1742989658735?e=1753920000&v=beta&t=WxqQj1a8UYvf40bLWLz04G5hPbhF86ep0j9E_kChUCI">
+                    <img src="assets/gccf.png" alt="GCCF Certificate" class="cert-img cert-full">
+                    <h3>GCCF Certificate</h3>
+                </div>
+                <div class="certification-item cert-modal-trigger" data-title="L4G Generative AI" data-img="assets/l4g.png" data-desc="Completed a 45 hour online course in Generative AI by Google Cloud with 24 skill badges on Google Cloud Skills Boost." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQFfYJTesM5Htw/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1729603139773?e=1753920000&v=beta&t=Fb9h6SNrjhQyYdnoEpNK5Q7RQNAjUnGcG1NNRa8RR_8">
+                    <img src="assets/l4g.png" alt="L4G Generative AI" class="cert-img cert-full">
+                    <h3>L4G Generative AI</h3>
+                </div>
+                <div class="certification-item cert-modal-trigger" data-title="Google For Developers" data-img="assets/google.png" data-desc="Internship at Google for Developers — Gained practical experience in Android Application Development and AI techniques, contributing to real-world projects and enhancing technical and problem-solving skills." data-link="https://media.licdn.com/dms/document/media/v2/D561FAQHdBRzrYxQtcA/feedshare-document-pdf-analyzed/feedshare-document-pdf-analyzed/0/1727347776868?e=1753920000&v=beta&t=06L0ATUwED3Op8-ipCHOyJcEZp7wiLoEi9F3LciPrI8">
+                    <img src="assets/google.png" alt="Google For Developers" class="cert-img cert-full">
+                    <h3>Associate Cloud Engineer</h3>
+                </div>
+                <!-- Modal for enlarged certification details -->
+                <div id="cert-modal" class="cert-modal" style="display:none;">
+                    <div class="cert-modal-content">
+                        <span class="close-cert-modal">&times;</span>
+                        <img id="cert-modal-img" src="" alt="Certification Image">
+                        <h3 id="cert-modal-title"></h3>
+                        <p id="cert-modal-desc"></p>
+                        <a id="cert-modal-link" href="#" target="_blank" rel="noopener noreferrer" class="cert-modal-link">View Official Certificate</a>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="certification-item cert-modal-trigger" data-title="AWS Academy" data-img="assets/aws.png" data-desc="My AI/ML experience has been a journey of learning and facing challenges and rewards. The field of AI and Machine Learning has been evolving constantly, and I felt excited to be part of it." data-link="https://www.credly.com/badges/c50f4505-0909-42ed-9e78-592f855169b0/print">
+                    <img src="assets/aws.png" alt="AWS Academy" class="cert-img cert-full">
+                    <h3>AWS Academy</h3>
                 </div>
                 <div class="certification-item">
+                    
                     <h3>Google For Developers</h3>
                     <p>Internship at Google for Developers — Gained practical experience in Android Application Development and AI techniques, contributing to real-world projects and enhancing technical and problem-solving skills.</p>
-                </div>
-                <div class="certification-item">
-                    <h3>AWS Academy</h3>
-                    <p>My AI/ML experience has been a journey of learning and facing challenges and rewards. The field of AI and Machine Learning has been evolving constantly, and I felt excited to be part of it.</p>
-                </div>
-                <div class="certification-item">
-                    <h3>Google Cloud Certified Associate</h3>
-                    <p>Recognized for foundational knowledge and skills in deploying and managing applications on Google Cloud.</p>
-                </div>
-                <div class="certification-item">
-                    <h3>Salesforce AI Associate</h3>
-                    <p>Certified in leveraging Salesforce AI tools to enhance customer relationship management and business processes.</p>
-                </div>
-                <div class="certification-item">
-                    <h3>L4G Generative AI</h3>
-                    <p>Demonstrated expertise in generative AI concepts, tools, and applications for solving real-world problems.</p>
-                </div>
-                <div class="certification-item">
-                    <h3>GCCF Certificate</h3>
-                    <p>Global Certified Cloud Fundamentals — Demonstrated foundational knowledge of cloud computing concepts, services, and deployment models.</p>
                 </div>
             </div>
         </section>
@@ -372,15 +427,67 @@
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/lowrence-devu-316392259/"><i class="fa-brands fa-linkedin"></i></a>
                         <a href="https://github.com/Lowrence-Devu"><i class="fa-brands fa-github"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/LowrenceDevu"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/lowrence_devu/"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
     <script>
+        const EducationBg = styled(motion.div)`
+    min-height: 100vh;
+width: 100vw;
+padding-top: 68px;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: ${({ theme }) => theme.background || 'linear-gradient(135deg, #f8ffae 0%, #a18cd1 40%, #fbc2eb 70%, #43c6ac 100%)'};
+position: relative;
+overflow-x: hidden;
+`;
+        const ProjectsBg = styled(motion.div)`
+    min-height: 100vh;
+width: 100vw;
+padding-top: 68px;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: ${({ theme }) => theme.background || 'linear-gradient(135deg, #f8ffae 0%, #a18cd1 40%, #fbc2eb 70%, #43c6ac 100%)'};
+position: relative;
+overflow-x: hidden;
+`;
+        const entrance = document.getElementById('entrance'); // Select the entrance page
+        const second = document.getElementById('second'); // Select the second page
+        const main = document.getElementById('main'); // Select the main page
+        const display = 'none'; // Initial display value for the second page
+        const education = document.getElementById('education'); // Select the education section
+        const projects = document.getElementById('projects'); // Select the projects section
+        const certifications = document.getElementById('certifications'); // Select the certifications section
+        const contact = document.getElementById('contact'); // Select the contact section
+        const particlesContainer = document.querySelector('.particles'); // Select the particles container
+        const hamburger = document.querySelector('.hamburger'); // Select the hamburger menu icon
+
+        // Function to toggle the display of the second page
+        function toggleSecondPage() {
+            if (second.style.display === display) {
+                second.style.display = 'flex'; // Show the second page
+                second.style.opacity = '1'; // Set opacity to 1
+            } else {
+                second.style.display = display; // Hide the second page
+                second.style.opacity = '0'; // Set opacity to 0
+            }
+            
+        }
+        const SplashCards = document.querySelectorAll('.splash-card'); // Select all splash cards
+        display = 'flex';
+
+        SplashCards.forEach(card => {
+            card.style.display = display; // Set the display property to 'flex'
+        });
+    </script>
+    <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             // Typing effect for the second page
             const typingH1 = document.getElementById('typing-h1');
@@ -490,6 +597,113 @@
             });
         });
     </script>
-</body>
+    <script>
+        // Section box fade-in animation
+        function animateSectionBoxes(sectionSelector, boxSelector) {
+            const section = document.querySelector(sectionSelector);
+            if (!section) return;
+            const boxes = section.querySelectorAll(boxSelector);
+            boxes.forEach(box => {
+                box.style.opacity = "0";
+                box.style.transform = "translateY(40px) scale(0.97)";
+                box.style.transition = "opacity 0.7s cubic-bezier(.17,.67,.83,.67), transform 0.7s cubic-bezier(.17,.67,.83,.67)";
+            });
 
+            function onScroll() {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    boxes.forEach((box, i) => {
+                        setTimeout(() => {
+                            box.style.opacity = "1";
+                            box.style.transform = "translateY(0) scale(1)";
+                        }, i * 120);
+                    });
+                    window.removeEventListener("scroll", onScroll);
+                }
+            }
+            window.addEventListener("scroll", onScroll);
+            onScroll();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate boxes in each section
+            animateSectionBoxes("#skills", ".skill");
+            animateSectionBoxes("#education", ".education-item");
+            animateSectionBoxes("#projects", ".project-item");
+            animateSectionBoxes("#certifications", ".certification-item");
+            animateSectionBoxes("#contact", ".contact-item");
+        });
+    </script>
+    <script>
+        // Project card modal logic
+        document.querySelectorAll('.project-item').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modal = document.getElementById('project-modal');
+                document.getElementById('modal-title').textContent = card.dataset.title;
+                document.getElementById('modal-img').src = card.dataset.img;
+                document.getElementById('modal-img').alt = card.dataset.title;
+                document.getElementById('modal-desc').textContent = card.dataset.desc;
+                const link = card.dataset.link;
+                const linkBtn = document.getElementById('project-modal-link');
+                if (link) {
+                    linkBtn.href = link;
+                    linkBtn.style.display = 'inline-block';
+                    if (link.includes('github.com')) {
+                        linkBtn.textContent = 'View on GitHub';
+                    } else {
+                        linkBtn.textContent = 'View Live';
+                    }
+                } else {
+                    linkBtn.style.display = 'none';
+                }
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
+            });
+        });
+        document.querySelector('.close-modal').onclick = function(e) {
+            e.stopPropagation();
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 200);
+        };
+        document.getElementById('project-modal').onclick = function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+                setTimeout(() => this.style.display = 'none', 200);
+            }
+        };
+    </script>
+    <script>
+        // Certification modal logic (pop-up box)
+        document.querySelectorAll('.cert-modal-trigger').forEach((card, i) => {
+            card.classList.add('fade-side-init-cert');
+            card.classList.add(i % 2 === 0 ? 'from-left' : 'from-right');
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const modal = document.getElementById('cert-modal');
+                document.getElementById('cert-modal-title').textContent = card.dataset.title;
+                document.getElementById('cert-modal-img').src = card.dataset.img;
+                document.getElementById('cert-modal-img').alt = card.dataset.title;
+                document.getElementById('cert-modal-desc').textContent = card.dataset.desc;
+                document.getElementById('cert-modal-link').href = card.dataset.link;
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
+            });
+        });
+        document.querySelector('.close-cert-modal').onclick = function(e) {
+            e.stopPropagation();
+            const modal = document.getElementById('cert-modal');
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 200);
+        };
+        document.getElementById('cert-modal').onclick = function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+                setTimeout(() => this.style.display = 'none', 200);
+            }
+        };
+    </script>
+    <script src="projects-anim.js"></script>
+</body>
 </html>
