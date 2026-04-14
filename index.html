@@ -459,15 +459,41 @@
             </div>
         </section>
     </div>
-    <footer style="text-align:center; margin:2rem 0; color:#888;">
-        <a href="https://github.com/Lowrence-Devu/portfolio" target="_blank" rel="noopener noreferrer" style="color:#888; text-decoration:none;">
-            <i class="fa-brands fa-github" style="vertical-align:middle; font-size:20px;"></i>
-            <span style="margin-left:8px; vertical-align:middle;">View repository on GitHub</span>
-            <p class="footer-copy">
-      © <span id="year"></span> Lowrence Devu. All Rights Reserved.
+   <footer style="text-align:center; margin:2rem 0; color:#888; font-size:14px;">
+
+    <!-- Name / Branding -->
+    <p style="margin-bottom:6px; font-weight:500; color:#ccc;">
+        Lowrence Devu
     </p>
-        </a>
-    </footer>
+
+    <!-- JD-style tagline -->
+    <p style="margin-bottom:12px; font-size:13px; color:#aaa;">
+        Aspiring Software Engineer | Focused on scalable systems, embedded solutions, and efficient development
+    </p>
+
+    <!-- GitHub Repo Link -->
+    <a href="https://github.com/Lowrence-Devu/portfolio" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="color:#888; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+       
+        <i class="fa-brands fa-github" style="font-size:18px;"></i>
+        <span>View Portfolio Source Code</span>
+    </a>
+
+    <!-- Divider -->
+    <div style="margin:14px 0; border-top:1px solid #222; width:60%; margin-left:auto; margin-right:auto;"></div>
+
+    <!-- Copyright -->
+    <p style="font-size:12px; color:#666;">
+        © <span id="year"></span> Lowrence Devu. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
     <!-- Repository: https://github.com/Lowrence-Devu/portfolio -->
     <script>
         const EducationBg = styled(motion.div)`
