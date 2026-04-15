@@ -18,7 +18,7 @@ Welcome to my **Developer Portfolio Website** – a digital showcase of my skill
 ## 🖼️ Demo
 
 Check out the live portfolio here:  
-👉 [https://yourusername.github.io/portfolio](https://yourusername.github.io/portfolio)
+👉 [https://lowrence-devu.github.io/portfolio/](https://lowrence-devu.github.io/portfolio/)
 
 ---
 
@@ -54,7 +54,7 @@ portfolio/
 
 
 
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/Lowrence-Devu/portfolio.git
 cd portfolio
 npm install   # if using React or Vue
 npm start
