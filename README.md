@@ -27,9 +27,9 @@ Check out the live portfolio here:
 | Technology    | Description                   |
 |---------------|-------------------------------|
 | HTML5 & CSS3  | Layout and styling             |
-| JavaScript    | Interactivity (vanilla or React) |
-| React.js      | Component-based UI (optional) |
-| Tailwind CSS  | Utility-first styling (optional) |
+| JavaScript    | Interactivity (React) |
+| React.js      | Component-based UI  |
+| Tailwind CSS  | Utility-first styling  |
 | EmailJS       | Contact form handling         |
 | Git & GitHub  | Version control & hosting     |
 
