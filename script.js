@@ -1,206 +1,302 @@
+/* =========================================================
+   LOWRENCE DEVU PORTFOLIO
+   MAIN JAVASCRIPT
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================================
+    /* =====================================================
        ELEMENTS
-    ========================================= */
+    ====================================================== */
 
+    const splash = document.getElementById("splash");
     const entrance = document.getElementById("entrance");
     const second = document.getElementById("second");
     const main = document.getElementById("main");
 
-    const typingElement = document.getElementById("typing");
-    const introTypingElement = document.getElementById("typing-intro");
+    const typingIntro =
+        document.getElementById("typing-h1");
 
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector("nav");
-    const navLinks = document.querySelectorAll("nav a");
+    const progressBar =
+        document.getElementById("progress-bar");
 
+    const heroTyping =
+        document.getElementById("typing");
 
-    /* =========================================
-       MOBILE MENU
-    ========================================= */
+    const header =
+        document.getElementById("header");
 
-    if (hamburger && nav) {
+    const nav =
+        document.getElementById("nav");
 
-        hamburger.addEventListener("click", () => {
-            nav.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
+    const menuToggle =
+        document.getElementById("menu-toggle");
 
-        navLinks.forEach(link => {
-
-            link.addEventListener("click", () => {
-                nav.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-
-        });
-
-    }
+    const particles =
+        document.getElementById("particles");
 
 
-    /* =========================================
-       INTRO ANIMATION
-    ========================================= */
+    /* =====================================================
+       SPLASH SCREEN
+    ====================================================== */
 
     const introText =
-        "in technology, innovation, and software.";
+        "in technology, innovation, and creativity.";
 
     let introIndex = 0;
 
+
     function typeIntro() {
 
-        if (!introTypingElement) return;
+        if (!typingIntro) {
+            return;
+        }
 
         if (introIndex < introText.length) {
 
-            introTypingElement.textContent +=
+            typingIntro.textContent +=
                 introText.charAt(introIndex);
 
             introIndex++;
 
-            setTimeout(typeIntro, 65);
+            setTimeout(
+                typeIntro,
+                55
+            );
 
         }
 
     }
 
 
-    /* =========================================
-       ENTRANCE → MAIN PAGE
-    ========================================= */
+    function showSecondSplash() {
 
-    if (entrance && second && main) {
+        if (!entrance || !second) {
+            return;
+        }
+
+        entrance.classList.remove("active");
 
         setTimeout(() => {
 
-            entrance.style.opacity = "0";
+            second.classList.add("active");
 
-            setTimeout(() => {
+            setTimeout(
+                typeIntro,
+                450
+            );
 
-                entrance.style.display = "none";
-
-                second.style.display = "flex";
-                second.style.opacity = "1";
-
-                typeIntro();
-
-                setTimeout(() => {
-
-                    second.style.opacity = "0";
-
-                    setTimeout(() => {
-
-                        second.style.display = "none";
-
-                        main.style.display = "block";
-
-                        requestAnimationFrame(() => {
-                            main.style.opacity = "1";
-                        });
-
-                    }, 700);
-
-                }, 3500);
-
-            }, 900);
-
-        }, 1800);
-
-    } else if (main) {
-
-        main.style.display = "block";
-        main.style.opacity = "1";
+        }, 300);
 
     }
 
 
-    /* =========================================
-       HERO TYPING EFFECT
-    ========================================= */
+    function startProgress() {
 
-    const words = [
-        "Software Engineer",
-        "Salesforce Developer",
-        "AI / Full-Stack Developer"
+        if (!progressBar) {
+            return;
+        }
+
+        const duration = 5800;
+
+        const startTime =
+            performance.now();
+
+
+        function updateProgress(currentTime) {
+
+            const elapsed =
+                currentTime - startTime;
+
+            const percentage =
+                Math.min(
+                    (elapsed / duration) * 100,
+                    100
+                );
+
+            progressBar.style.width =
+                `${percentage}%`;
+
+            if (percentage < 100) {
+
+                requestAnimationFrame(
+                    updateProgress
+                );
+
+            }
+
+        }
+
+        requestAnimationFrame(
+            updateProgress
+        );
+
+    }
+
+
+    function finishSplash() {
+
+        if (!main || !splash) {
+            return;
+        }
+
+        main.classList.add("is-visible");
+
+        splash.classList.add("hidden");
+
+        document.body.style.overflow = "";
+
+        setTimeout(() => {
+
+            splash.remove();
+
+        }, 900);
+
+    }
+
+
+    document.body.style.overflow =
+        "hidden";
+
+
+    startProgress();
+
+
+    setTimeout(() => {
+
+        showSecondSplash();
+
+    }, 3000);
+
+
+    setTimeout(() => {
+
+        finishSplash();
+
+    }, 6400);
+
+
+    /* =====================================================
+       HERO TYPING
+    ====================================================== */
+
+    const heroWords = [
+
+        "Frontend Developer",
+        "Web Developer",
+        "AI Enthusiast",
+        "Software Builder"
+
     ];
 
     let wordIndex = 0;
-    let letterIndex = 0;
-    let isDeleting = false;
+    let charIndex = 0;
+    let deleting = false;
 
-    function typeRole() {
 
-        if (!typingElement) return;
+    function typeHeroText() {
 
-        const currentWord = words[wordIndex];
+        if (!heroTyping) {
+            return;
+        }
 
-        if (isDeleting) {
+        const currentWord =
+            heroWords[wordIndex];
 
-            letterIndex--;
+
+        if (!deleting) {
+
+            heroTyping.textContent =
+                currentWord.substring(
+                    0,
+                    charIndex + 1
+                );
+
+            charIndex++;
+
+
+            if (
+                charIndex ===
+                currentWord.length
+            ) {
+
+                deleting = true;
+
+                setTimeout(
+                    typeHeroText,
+                    1700
+                );
+
+                return;
+
+            }
 
         } else {
 
-            letterIndex++;
+            heroTyping.textContent =
+                currentWord.substring(
+                    0,
+                    charIndex - 1
+                );
+
+            charIndex--;
+
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                wordIndex =
+                    (wordIndex + 1)
+                    % heroWords.length;
+
+            }
 
         }
 
-        typingElement.textContent =
-            currentWord.substring(0, letterIndex);
 
-
-        let speed = isDeleting ? 55 : 90;
-
-
-        if (!isDeleting &&
-            letterIndex === currentWord.length) {
-
-            speed = 1800;
-            isDeleting = true;
-
-        } else if (
-            isDeleting &&
-            letterIndex === 0
-        ) {
-
-            isDeleting = false;
-
-            wordIndex =
-                (wordIndex + 1) % words.length;
-
-            speed = 400;
-
-        }
-
-        setTimeout(typeRole, speed);
+        setTimeout(
+            typeHeroText,
+            deleting ? 45 : 75
+        );
 
     }
 
-    typeRole();
+
+    setTimeout(
+        typeHeroText,
+        7000
+    );
 
 
-    /* =========================================
+    /* =====================================================
        PARTICLES
-    ========================================= */
+    ====================================================== */
 
-    const particlesContainer =
-        document.querySelector(".particles");
+    function createParticles() {
 
-    if (particlesContainer) {
+        if (!particles) {
+            return;
+        }
 
-        for (let i = 0; i < 35; i++) {
+        const count =
+            window.innerWidth < 600
+                ? 25
+                : 45;
+
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
 
             const particle =
                 document.createElement("span");
 
-            const size =
-                Math.random() * 4 + 3;
+            particle.className =
+                "particle";
 
-            particle.style.width =
-                `${size}px`;
-
-            particle.style.height =
-                `${size}px`;
 
             particle.style.left =
                 `${Math.random() * 100}%`;
@@ -208,10 +304,28 @@ document.addEventListener("DOMContentLoaded", () => {
             particle.style.top =
                 `${Math.random() * 100}%`;
 
-            particle.style.animationDuration =
-                `${Math.random() * 5 + 3}s`;
 
-            particlesContainer.appendChild(
+            particle.style.setProperty(
+                "--x",
+                `${(Math.random() - 0.5) * 100}px`
+            );
+
+            particle.style.setProperty(
+                "--y",
+                `${(Math.random() - 0.5) * 100}px`
+            );
+
+            particle.style.setProperty(
+                "--duration",
+                `${3 + Math.random() * 5}s`
+            );
+
+
+            particle.style.animationDelay =
+                `${Math.random() * 3}s`;
+
+
+            particles.appendChild(
                 particle
             );
 
@@ -220,41 +334,195 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
+    createParticles();
+
+
+    /* =====================================================
+       HEADER SCROLL
+    ====================================================== */
+
+    function handleHeaderScroll() {
+
+        if (!header) {
+            return;
+        }
+
+        if (window.scrollY > 30) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        handleHeaderScroll,
+        {
+            passive: true
+        }
+    );
+
+
+    handleHeaderScroll();
+
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ====================================================== */
+
+    function closeNav() {
+
+        if (!nav) {
+            return;
+        }
+
+        nav.classList.remove(
+            "open"
+        );
+
+        if (menuToggle) {
+
+            menuToggle
+                .setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+            menuToggle.innerHTML =
+                '<i class="fas fa-bars"></i>';
+
+        }
+
+    }
+
+
+    if (menuToggle) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                if (!nav) {
+                    return;
+                }
+
+                const isOpen =
+                    nav.classList.toggle(
+                        "open"
+                    );
+
+
+                menuToggle
+                    .setAttribute(
+                        "aria-label",
+                        isOpen
+                            ? "Close navigation menu"
+                            : "Open navigation menu"
+                    );
+
+
+                menuToggle.innerHTML =
+                    isOpen
+                        ? '<i class="fas fa-xmark"></i>'
+                        : '<i class="fas fa-bars"></i>';
+
+            }
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-link")
+        .forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    closeNav();
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
        ACTIVE NAVIGATION
-    ========================================= */
+    ====================================================== */
 
     const sections =
-        document.querySelectorAll("section[id]");
+        document.querySelectorAll(
+            "main section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
 
     function updateActiveNav() {
 
-        let currentSection = "";
+        let current =
+            "home";
 
-        sections.forEach(section => {
+
+        sections.forEach((section) => {
 
             const sectionTop =
-                section.offsetTop - 180;
+                section.offsetTop - 160;
 
-            if (window.scrollY >= sectionTop) {
+            const sectionBottom =
+                sectionTop +
+                section.offsetHeight;
 
-                currentSection =
-                    section.getAttribute("id");
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionBottom
+            ) {
+
+                current =
+                    section.id;
 
             }
 
         });
 
-        navLinks.forEach(link => {
 
-            link.classList.remove("active");
+        navLinks.forEach((link) => {
+
+            link.classList.remove(
+                "active"
+            );
+
 
             const href =
-                link.getAttribute("href");
+                link.getAttribute(
+                    "href"
+                );
 
-            if (href === `#${currentSection}`) {
 
-                link.classList.add("active");
+            if (
+                href ===
+                `#${current}`
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
 
             }
 
@@ -262,26 +530,551 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     window.addEventListener(
         "scroll",
-        updateActiveNav
+        updateActiveNav,
+        {
+            passive: true
+        }
     );
+
 
     updateActiveNav();
 
 
-    /* =========================================
-       FOOTER YEAR
-    ========================================= */
+    /* =====================================================
+       REVEAL ANIMATIONS
+    ====================================================== */
 
-    const year =
-        document.getElementById("year");
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
 
-    if (year) {
 
-        year.textContent =
-            new Date().getFullYear();
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "visible"
+                                    );
+
+                                observer
+                                    .unobserve(
+                                        entry.target
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(
+            (element) => {
+
+                observer.observe(
+                    element
+                );
+
+            }
+        );
+
+    } else {
+
+        revealElements.forEach(
+            (element) => {
+
+                element.classList.add(
+                    "visible"
+                );
+
+            }
+        );
 
     }
+
+
+    /* =====================================================
+       PROJECT MODAL
+    ====================================================== */
+
+    const projectModal =
+        document.getElementById(
+            "project-modal"
+        );
+
+    const projectImage =
+        document.getElementById(
+            "modal-project-image"
+        );
+
+    const projectTitle =
+        document.getElementById(
+            "modal-project-title"
+        );
+
+    const projectDescription =
+        document.getElementById(
+            "modal-project-description"
+        );
+
+    const projectLink =
+        document.getElementById(
+            "modal-project-link"
+        );
+
+    const projectCategory =
+        document.getElementById(
+            "modal-project-category"
+        );
+
+
+    function openProjectModal(card) {
+
+        if (!projectModal || !card) {
+            return;
+        }
+
+
+        const title =
+            card.dataset.title ||
+            "Project";
+
+        const image =
+            card.dataset.img ||
+            "";
+
+        const description =
+            card.dataset.desc ||
+            "";
+
+        const link =
+            card.dataset.link ||
+            "#";
+
+        const categoryElement =
+            card.querySelector(
+                ".project-category"
+            );
+
+
+        if (projectTitle) {
+
+            projectTitle.textContent =
+                title;
+
+        }
+
+
+        if (projectImage) {
+
+            projectImage.src =
+                image;
+
+            projectImage.alt =
+                title;
+
+        }
+
+
+        if (projectDescription) {
+
+            projectDescription.textContent =
+                description;
+
+        }
+
+
+        if (projectLink) {
+
+            projectLink.href =
+                link;
+
+            if (
+                !link ||
+                link === "#"
+            ) {
+
+                projectLink.style.display =
+                    "none";
+
+            } else {
+
+                projectLink.style.display =
+                    "inline-flex";
+
+            }
+
+        }
+
+
+        if (
+            projectCategory &&
+            categoryElement
+        ) {
+
+            projectCategory.textContent =
+                categoryElement.textContent;
+
+        }
+
+
+        projectModal.classList.add(
+            "active"
+        );
+
+        projectModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".project-card"
+        )
+        .forEach((card) => {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    openProjectModal(
+                        card
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       CERTIFICATION MODAL
+    ====================================================== */
+
+    const certModal =
+        document.getElementById(
+            "cert-modal"
+        );
+
+    const certImage =
+        document.getElementById(
+            "modal-cert-image"
+        );
+
+    const certTitle =
+        document.getElementById(
+            "modal-cert-title"
+        );
+
+    const certDescription =
+        document.getElementById(
+            "modal-cert-description"
+        );
+
+    const certLink =
+        document.getElementById(
+            "modal-cert-link"
+        );
+
+
+    function openCertModal(card) {
+
+        if (!certModal || !card) {
+            return;
+        }
+
+
+        const title =
+            card.dataset.title ||
+            "Certificate";
+
+        const image =
+            card.dataset.img ||
+            "";
+
+        const description =
+            card.dataset.desc ||
+            "";
+
+        const link =
+            card.dataset.link ||
+            "#";
+
+
+        if (certTitle) {
+
+            certTitle.textContent =
+                title;
+
+        }
+
+
+        if (certImage) {
+
+            certImage.src =
+                image;
+
+            certImage.alt =
+                title;
+
+        }
+
+
+        if (certDescription) {
+
+            certDescription.textContent =
+                description;
+
+        }
+
+
+        if (certLink) {
+
+            certLink.href =
+                link;
+
+
+            if (
+                !link ||
+                link === "#"
+            ) {
+
+                certLink.style.display =
+                    "none";
+
+            } else {
+
+                certLink.style.display =
+                    "inline-flex";
+
+            }
+
+        }
+
+
+        certModal.classList.add(
+            "active"
+        );
+
+        certModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "modal-open"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".cert-card"
+        )
+        .forEach((card) => {
+
+            card.addEventListener(
+                "click",
+                (event) => {
+
+                    /*
+                     * Prevent the button's default
+                     * behavior from affecting the modal.
+                     */
+                    event.preventDefault();
+
+                    openCertModal(
+                        card
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       CLOSE MODALS
+    ====================================================== */
+
+    function closeModal(modal) {
+
+        if (!modal) {
+            return;
+        }
+
+        modal.classList.remove(
+            "active"
+        );
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".modal-close"
+        )
+        .forEach((button) => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    closeModal(
+                        button.closest(
+                            ".modal"
+                        )
+                    );
+
+                }
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(
+            ".modal-overlay"
+        )
+        .forEach((overlay) => {
+
+            overlay.addEventListener(
+                "click",
+                () => {
+
+                    closeModal(
+                        overlay.closest(
+                            ".modal"
+                        )
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       ESCAPE KEY
+    ====================================================== */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key !==
+                "Escape"
+            ) {
+
+                return;
+
+            }
+
+
+            document
+                .querySelectorAll(
+                    ".modal.active"
+                )
+                .forEach(
+                    (modal) => {
+
+                        closeModal(
+                            modal
+                        );
+
+                    }
+                );
+
+
+            closeNav();
+
+        }
+    );
+
+
+    /* =====================================================
+       WINDOW RESIZE
+    ====================================================== */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 850
+            ) {
+
+                closeNav();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       IMAGE ERROR HANDLING
+    ====================================================== */
+
+    document
+        .querySelectorAll(
+            "img"
+        )
+        .forEach((img) => {
+
+            img.addEventListener(
+                "error",
+                () => {
+
+                    img.style.opacity =
+                        "0.25";
+
+                }
+            );
+
+        });
+
 
 });
