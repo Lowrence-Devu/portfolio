@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ====================================================== */
 
     const heroWords = [
-
         "Frontend Developer",
         "Web Developer",
         "AI Enthusiast",
