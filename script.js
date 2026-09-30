@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Frontend Developer",
         "Web Developer",
         "AI Enthusiast",
-        "Software Builder"
+        "Salesforce Developer",
+        "Software Engineer"
 
     ];
 
